@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import ReminderApp from './Birthday-Reminder-Functional-component/App'
+import App from './Add-People-to-table-using-context-in-Fun-Component/App'
 
 function Routing() {
   return (
@@ -8,11 +8,11 @@ function Routing() {
       <div>
         <ul>
           <li>
-            <Link to='/ReminderApp'>B'day Remainder App</Link>
+            <Link to='/App'>People in table App</Link>
           </li>
         </ul>
         <hr />
-        <Route path='/ReminderApp' component={ReminderApp} />
+        <Route path='/App' component={App} />
       </div>
     </Router>
   )
