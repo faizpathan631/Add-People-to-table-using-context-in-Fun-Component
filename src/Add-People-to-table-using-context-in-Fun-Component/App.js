@@ -1,11 +1,14 @@
 import React from 'react'
 import contextData from './Context'
 import { AddPeople } from './Add-new-person'
+import ReactModal from 'react-modal'
 export default function App() {
   const [data, setData] = React.useState(React.useContext(contextData))
+  const [openModal, setOpenModal] = React.useState(false)
 
   return (
     <>
+      <button onClick={() => setOpenModal(true)}>Add new person</button>
       <table>
         <thead>
           <tr>
@@ -25,7 +28,13 @@ export default function App() {
         </tbody>
       </table>
       <br />
-      <AddPeople data={data} setData={setData} />
+      <ReactModal
+        isOpen={openModal}
+        ariaHideApp={false}
+        onRequestClose={() => setOpenModal(false)}
+      >
+        <AddPeople data={data} setData={setData} setOpenModal={setOpenModal} />
+      </ReactModal>
     </>
   )
 }
